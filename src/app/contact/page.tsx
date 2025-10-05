@@ -68,14 +68,15 @@ export default function ContactMe() {
         throw new Error("Submission failed. Please try again later.");
       }
 
-      const result = await response.json();
+      await response.json();
       // Professional confirmation message with a subtle call-to-action.
       toast(
         "Thank you for contacting us. Your inquiry has been received, and our team will respond promptly."
       );
       form.reset();
-    } catch (error: any) {
-      toast(error.message || "An error occurred. Please try again.");
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "An error occurred. Please try again.";
+      toast(errorMessage);
     }
   }
 
