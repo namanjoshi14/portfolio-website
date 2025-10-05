@@ -1,5 +1,3 @@
-// src/app/api/contact/route.ts
-
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -11,7 +9,6 @@ type ContactFormData = {
   feedback: string;
 };
 
-// Configure Nodemailer with your SMTP settings (set these via env variables).
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT) || 587,
@@ -39,8 +36,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    // Persist the data as needed (e.g., database insertion)
-    console.log("Storing contact form data:", formData);
+    console.log(formData);
 
     const mailOptions = {
       from: process.env.FROM_EMAIL,
@@ -66,9 +62,9 @@ Your Team
     return NextResponse.json({ message: "Success" });
   } catch (error: unknown) {
     if (error instanceof Error) {
-      console.error("Error processing contact form:", error.message);
+      console.error(error.message);
     } else {
-      console.error("Unexpected error:", error);
+      console.error(error);
     }
     return NextResponse.json(
       { error: "Internal Server Error. Please try again later." },

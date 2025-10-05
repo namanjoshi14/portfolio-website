@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,11 +31,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <footer className="w-full bg-black text-white text-center py-6 text-sm border-t border-gray-800 mt-8">
-          <p className="mb-1">
-            © {new Date().getFullYear()} Naman Joshi. All Rights Reserved.
-          </p>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

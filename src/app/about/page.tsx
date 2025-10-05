@@ -9,7 +9,7 @@ const timelineData = [
     content: (
       <div className="space-y-2">
         <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
-          2 yrs 11 mos
+          3 yrs 4 mos
         </p>
         <p className="text-base font-semibold text-neutral-900 dark:text-neutral-100">
           Specialist Programmer
